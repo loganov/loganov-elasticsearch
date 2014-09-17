@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe "loganov-java"
+
 cookbook_file 'GPG-KEY-elasticsearch' do
     path   '/etc/pki/rpm-gpg/GPG-KEY-elasticsearch'
     owner  'root'
@@ -40,7 +42,7 @@ end
 service 'elasticsearch' do
   service_name 'elasticsearch'
   supports :restart => true, :reload => true
-  action [:enable]
+  action [:enable, :start]
   subscribes :reload, "template[/etc/elasticsearch/elasticsearch.yml]", :immediately
 end
 

@@ -9,5 +9,6 @@ version          '0.1.3'
 recipe           'loganov-elastisearch::default', 'Install ES'
 recipe           'loganov-elasticsearch::kibana', 'Install Kibana frontend'
 
+depends          'loganov-java'
 depends          'loganov-nginx'
 depends          'yum'
